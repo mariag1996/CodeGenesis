@@ -1,0 +1,421 @@
+ :root {
+    --fuente:"Domine", serif;
+    --fuente-header-footer:"Gabriela", serif;
+}
+ 
+
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+     background:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1350&q=80');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     margin: 0;
+    padding: 0;
+ }
+
+
+
+.header{
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.50), rgba(20, 20, 20, 0.70));
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo{
+    width: 100px;
+    height: auto;
+}
+
+.header__texto{
+  font-size: 32px;
+  font-family: var(--fuente-header-footer);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* sombra negra */
+}
+
+.contenedor__iconos{
+    display: flex;
+    gap: 25px;
+}
+
+
+.material-symbols-outlined {
+color: white;
+font-size: 45px !important; 
+}
+
+.material-icons:hover {
+    transform: scale(1.2); /* Efecto de aumento al pasar el mouse */
+}
+
+.contenedor__sesion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sesion{
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.footer{
+    margin-top: auto;
+    padding-top: 50px;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.60), rgba(20, 20, 20, 0.85));
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6); 
+}
+
+.footer__redes{
+    display: flex;
+    gap: 20px;
+    margin-right: 10px;
+}
+
+
+
+.icono__redes{
+    width: 35px;
+    height: 35px;
+
+}
+
+
+/* Estilo inicaiar sesión*/
+
+.contenedor__login{
+   flex: 1; /* ocupa todo el espacio disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicioSesion{
+    margin-top: 40px;
+    width: 90%;   
+    max-width: 400px; 
+    height: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.formulario {
+  letter-spacing: 1px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: var(--fuente);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* sombra negra */
+}
+
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  outline: none;
+  width: 280px;
+  margin-top: 10px;
+}
+
+input:focus {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.botonInicioSesion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.boton_entrar {
+   background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--fuente);    
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.boton_entrar:hover {
+  transform: translateY(-2px);     /* Pequeño movimiento hacia arriba */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+/* Para ocultar los controles de incremento/decremento en Chrome, Safari, Edge */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Espaciado entre campos */
+.inicioSesion label,
+.inicioSesion input {
+  margin-bottom: 15px;
+}
+
+/* Estilo para el contenedor del formulario */
+.inicioSesion {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.inicioSesion:hover {
+  transform: scale(1.02);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.inicioSesion {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Estilo para los campos de entrada */
+input.campo {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input.campo:focus {
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(66, 151, 231, 0.6);
+}
+
+.footer__contenedor-lista{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor-integrantes{
+  display: flex;
+  justify-content: center; 
+   gap: 40px;
+}
+
+.contenedor-integrantes__lista{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  font-family:"Gabriela", serif;
+  font-size: 20px;
+   list-style: none;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* sombra negra */
+}
+
+.footer {
+  position: relative; /* Necesario para posicionar elementos hijos */
+  display: flex;
+  justify-content: flex-end; /* Íconos a la derecha */
+  align-items: center;
+  padding: 20px;
+  height: 85px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: white;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  font-family: var;
+}
+
+.footer__contenedor-lista {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Mensaje de error*/ 
+
+.error_logeo {
+    background-color: rgba(255, 0, 0, 0.3); /* rojo translucido */
+    border: 1px solid rgba(255, 0, 0, 0.7); /* borde rojo más fuerte */
+    padding: 15px 20px;
+    margin: 20px auto;
+    width: fit-content;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.texto__error_logeo {
+    color: #460606; 
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==================== Responsive: Tablets ==================== */
+@media screen and (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+  }
+
+  .header__texto {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .contenedor__iconos {
+    margin-top: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer__contenedor-lista {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  .contenedor-integrantes {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ==================== Responsive: Celulares ==================== */
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .header__texto {
+    font-size: 20px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 36px !important;
+  }
+
+  .inicioSesion {
+    width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  margin: 20px;
+  }
+
+  .formulario {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+  }
+
+  .botonInicioSesion {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .footer__contenedor-lista {
+    position: static;
+    transform: none;
+  }
+
+  .contenedor-integrantes {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contenedor-integrantes__lista {
+    font-size: 16px;
+  }
+
+  .icono__redes {
+    width: 28px;
+    height: 28px;
+  }
+}

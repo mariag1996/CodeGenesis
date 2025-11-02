@@ -1,0 +1,1230 @@
+:root {
+    --color_celeste: #007BFF;
+    --color-header-footer: linear-gradient(40deg, #020288, #3b028a, #6f0290, #8f068f, hsl(310, 100%, 22%), #e23131);
+    --fuente-titulo:"Cinzel", serif;
+  }
+
+
+
+
+.header{
+  width: 100%;
+  height: 80px;
+  filter: brightness(95%) saturate(85%);
+  background: var(--color-header-footer);
+  backdrop-filter: blur(6px);
+  color: white;
+  display: flex;              
+  align-items: flex-end;      
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.contenedor__header__texto{
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+}
+
+
+.header__texto{
+  font-size: 2.2rem;
+  font-family: var(--fuente-titulo);
+  letter-spacing: 2px;
+  color: white;
+  font-weight: 100;
+}
+
+
+.footer{
+  width: 100%;
+  height: 120px;
+  background:var(--color-header-footer)
+}
+
+
+.contenedor__iconos {
+  position: absolute;
+  right: 20px;   /* Cambia a left: 20px si quieres que quede a la izquierda */
+  cursor: pointer;
+  font-size: 28px;
+  color: white;
+  display: flex;
+  gap: 20px;
+}
+
+
+.aulas{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    margin-top: auto;
+    background: var(--color-header-footer);
+}
+
+
+/*--------------- Iconos del footer ----------*/
+
+
+.footer__redes{
+    display: flex;
+    gap: 50px;
+    margin-right: 10px;
+}
+
+
+.icono__redes {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.icono__redes:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+
+/* Nombre de los usuarios en el header*/
+
+
+.cont__nombre-usuario{
+ flex: 1;
+  text-align: center;
+}
+
+
+.nombre-usuario{
+      font-size: 40px;
+  color: white;
+  font-weight: 600;
+}
+
+
+
+
+/* -------Estilo de icono home*/
+.material-icons{
+     font-size: 30px !important;  /* Tamaño del ícono */
+    color: white;      /* Color del ícono */
+}
+
+
+/* -------Estilo de icono menú*/
+  .material-symbols-outlined {
+    font-size: 30px !important;  /* Tamaño del ícono */
+    color: white;      /* Color del ícono */
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+
+  .menu-desplegable {
+  position: absolute;
+  top: 80px; /* justo debajo del header */
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 1000;
+}
+
+
+.boton-menu {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+
+
+.boton-menu:last-child {
+  border-bottom: none;
+}
+
+
+.boton-menu:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-size: 16px;
+   
+}
+
+
+
+
+/*-------------------------- ESTILO DE LAS TABLAS DE REGISTRO Y EDITADO DE HORARIOS*------------------------*/
+
+
+
+
+ .mensaje-exito {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e6f7e6;
+    border: 1px solid #4CAF50;
+    color: #2e7d32;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+.contenedor_titulo {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+   padding: 8px 12;
+   background-color:var(--color_celeste);
+   color: white;
+   height: auto;
+   margin: 20px 0;
+}
+
+
+.titulo {
+    font-size: clamp(1.3rem, 4vw, 2.3rem);
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+.selector_grupo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 90%;
+    text-align: center;
+}
+
+
+.seleccionar-grupo{
+    width: 200px;
+}
+
+
+.seleccionar-grupo option:hover {
+    background-color: var(--color_celeste);
+    color: white;
+}
+
+
+.contenedor__boton-horario{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+
+.boton-horario{
+    width: 300px;
+}
+
+
+.contenedor_formulario-horario{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+
+.formulario-horario {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+.label-grupo {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.select-grupo {
+    padding: 8px;
+    font-size: 1rem;
+    width: 250px;
+}
+
+
+.tabla-horario {
+    overflow-x: auto;
+    display: block;
+}
+
+
+.fila-cabecera {
+    background-color: #eee;
+    height: 40px;
+}
+
+
+.hora {
+    background: linear-gradient(to bottom right, #4a90e2, #9b59b6);
+    color: white;
+    font-weight: bold;
+}
+
+
+.dia {
+    background-color: #dfe6e9;
+    font-weight: bold;
+}
+
+
+.fila-horario:hover {
+    background-color: #f1f1f1;
+}
+
+
+.input-hora {
+    margin-top: 5px;
+    padding: 5px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+
+.select-asignatura {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+}
+
+
+.cont_titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.contenedor__titulo-lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--color_celeste);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    max-width: 500px;
+    padding: 10px; /* para evitar que el texto toque los bordes */
+    box-sizing: border-box;
+    color: white !important;
+    text-align: center;
+}
+
+
+.titulo-lista {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: bold;
+  white-space: normal; /* permite que el texto se divida en líneas si es necesario */
+  word-break: break-word; /* fuerza el quiebre de palabras largas */
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+
+
+.contenedor__boton-horario{
+    display: flex;
+    justify-content: center;
+}
+
+
+.seccion-boton{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+
+}
+
+
+.contenedor__boton_listado {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.boton_listado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color_celeste);
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+
+
+}
+
+
+.boton_listado:hover {
+  background-color: #051b64;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+
+.boton_guardar {
+    margin-top: 20px;
+    padding: 12px;
+    background-color:var(--color_celeste);
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 40px;
+    width: 200px;
+}
+
+
+
+
+.boton_guardar:hover {
+  background-color: #051b64;
+   transform: scale(1.05);
+}
+
+
+
+
+.tabla_responsive {
+  width: 100%;
+   max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+/*--------------------------------ESTILO DE VER HORARIOS----------------------------*/
+
+
+/* Contenedor principal */
+.horario-ver {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f9fc;
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+/* Título */
+.horario-ver__titulo {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+
+/* Tabla */
+.horario-ver__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+/* Cabecera */
+.horario-ver__cabecera {
+    background-color: #34495e;
+    color: #fff;
+}
+
+
+.horario-ver__fila {
+    text-align: center;
+}
+
+
+.horario-ver__columna {
+    padding: 12px;
+    font-weight: 600;
+    border-right: 1px solid #ddd;
+}
+
+
+.horario-ver__columna:last-child {
+    border-right: none;
+}
+
+
+/* Cuerpo */
+.horario-ver__cuerpo td {
+    padding: 14px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+
+
+.horario-ver__cuerpo td:first-child {
+    background-color: #ecf0f1;
+    font-weight: bold;
+    font-size: 14px;
+
+
+}
+
+
+/*-------------------------- ESTILO DE LAS TABLAS DE INASISTENCIAS*------------------------*/
+
+
+td.inasistencia {
+    background-color: #f88;
+ }
+
+
+.select-aula {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+}
+
+
+.rojo {
+    background-color: #ffcccc;
+}
+
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+
+.contenedor_formulario-inaistencias{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+
+
+
+/* Tabla */
+.tabla_inasistencias {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Cabecera */
+.cabecera {
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+
+.cabecera__fila th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+
+/* Filas */
+.tabla_inasistencias tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+
+.tabla_inasistencias tbody tr:hover {
+  background-color: #f4f6f8;
+}
+
+
+/* Celdas */
+.fila {
+  padding: 14px 20px;
+}
+
+
+.contenedor_botones{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Botones */
+.tabla_inasistencias a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #3498db;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  margin-right: 6px;
+}
+
+
+.tabla_inasistencias a:hover {
+  background-color: #2980b9;
+}
+
+
+.dia-cabecera{
+     background: linear-gradient(to bottom right, #4a90e2, #9b59b6);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+/*color casillas inasistencias*/
+td.rojo {
+    background-color: #fdd;
+}
+
+
+/* Tabla ver inasistencias*/
+
+
+.inasistencias-ver__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+
+.inasistencias-ver__cabecera th {
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px;
+    font-size: 1.2rem;
+}
+
+
+.inasistencias-ver__cuerpo td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+
+.inasistencias-ver__celda.inasistencia {
+    background-color: #ffe0e0;
+    font-weight: bold;
+    color: #c00;
+}
+
+
+
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+/* Enlace de retorno */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #0077cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* Tabla de horario */
+.tabla-horario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+.tabla-horario th,
+.tabla-horario td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.tabla-horario thead {
+    background-color: #0077cc;
+    color: white;
+}
+
+
+.tabla-horario th.horas {
+    background-color: #e0e0e0;
+}
+
+
+/* Celda con inasistencia */
+td.rojo {
+    background-color: #ffe5e5;
+}
+
+
+/* Select y checkbox */
+select,
+input[type="checkbox"],
+input[type="time"] {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+
+
+/* ------------Estilos para la tabla listado---------*/
+
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    margin-top: 30px;
+}
+
+
+/* Encabezados de la tabla */
+.tabla-cabecera th {
+    background-color:#007BFF;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+
+/* Estilos para las celdas de la tabla */
+.tabla-celda {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #333;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: none;
+}
+
+
+/* Estilo para las filas de la tabla */
+.tabla-fila {
+  background-color: white; /* o el color que prefieras */
+}
+
+
+
+
+.tabla-fila:hover {
+  background-color: #f1f1f1;
+}
+
+
+.tabla-fila:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+/* Estilo para los enlaces en las acciones */
+.tabla-celda a {
+    color: #4caf50;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+/* Estilo para el contenedor de la tabla (con espaciado y borde) */
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.botones_acciones {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.tabla_lista {
+  width: 100%;
+  min-width: 600px; /* evita que se rompa en celulares */
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  margin-top: 30px;
+}
+
+
+.contenedor_tabla_responsive{
+    width: 100%;
+    overflow-x: auto; /*  permite scroll horizontal en celulares */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== Responsive Tablets ==================== */
+
+
+@media (max-width: 1024px) {
+
+
+.header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+
+  .header__texto {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+
+  .contenedor__iconos {
+    position: static;
+    transform: none;
+    justify-content: center;
+    gap: 16px;
+  }
+
+
+  .menu-desplegable {
+    right: 10px;
+    top: 100%;
+  }
+
+
+
+
+ /* --- Footer --- */
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    height: auto;
+    min-height: 70px;
+    text-align: center;
+  }
+
+
+
+
+  .footer__redes {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+ 
+/* --- Título --- */
+  .contenedor_titulo {
+    width: 100%;
+    min-height: 60px;        
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+
+ .titulo {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.2;
+    max-width: 90%;
+  }
+
+
+
+
+
+
+   .select-grupo,
+  .seleccionar-grupo {
+    width: 180px;            /* Más angosto */
+    font-size: 0.95rem;
+  }
+
+
+
+
+  .contenedor_formulario-horario {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+
+   .seleccionar-grupo option {
+    font-size: 0.9rem;       /* Opciones más compactas */
+  }
+ 
+  .boton-horario {
+    width: 80%;
+    max-width: 300px;
+  }
+
+
+
+
+ .tabla_lista {
+    font-size: 0.9rem;       /* Reduce levemente el texto */
+    min-width: 550px;        /* Levemente más angosta */
+  }
+
+
+  .tabla-celda,
+  .tabla-cabecera th {
+    padding: 8px 10px;       /* Reduce padding */
+  }
+
+
+
+
+    .botones_acciones {
+    gap: 15px;               /* Reduce espacio entre botones */
+  }
+
+
+    .tabla-horario {
+    min-width: 800px;         /* Le da más ancho aprovechando el scroll horizontal */
+    font-size: 0.95rem;       /* Mantiene buen tamaño de texto */
+  }
+
+
+ 
+  .tabla-horario th,
+  .tabla-horario td {
+    padding: 10px 12px;       /* Más espacio interno para legibilidad */
+  }
+
+
+ .select-asignatura,
+  .input-hora select {
+    width: 120px;            
+    font-size: 0.95rem;      /* Texto más pequeño */
+    padding: 5px;
+  }
+
+
+  .select-asignatura option,
+  .input-hora select option {
+    font-size: 0.9rem;
+  }
+
+
+}
+
+
+/* ==================== Responsive Celulares ==================== */
+
+
+@media (max-width: 768px) {
+  .header {
+     font-size: 1.5rem;
+  }
+
+
+  .contenedor__iconos {
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+
+    .material-icons,
+  .material-symbols-outlined {
+    font-size: 26px !important;
+  }
+
+
+  /* Para arreglar la alineación de los íconos  ( el de home estaba más abajo)*/
+.material-symbols-outlined {
+  transform: translateY(2px);
+}
+
+
+.contenedor__iconos {
+    gap: 12px;
+  }
+
+
+   .menu-desplegable {
+    width: 90%;
+    right: 5%;
+  }
+
+
+   /* --- Título --- */
+  .contenedor_titulo {
+    width: 100%;
+    min-height: 60px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+ 
+  .titulo {
+    font-size: 1.4rem;
+    max-width: 95%;
+    line-height: 1.3;
+  }
+
+
+
+
+.contenedor {
+  padding: 15px;
+  margin: 10px;
+  box-shadow: none; /* Quita sombras grandes en pantallas chicas */
+}
+
+
+.tabla_lista {
+    font-size: 0.85rem;      /* Texto más pequeño */
+    min-width: 500px;        /* Un poco más angosta, pero sigue permitiendo scroll */
+  }
+
+
+   .tabla-celda,
+  .tabla-cabecera th {
+    padding: 6px 8px;        /* Menos alto y ancho */
+  }
+
+
+  .botones_acciones {
+    flex-direction: column;  /* Ya lo tenías, mantiene legibilidad */
+    gap: 8px;
+  }
+
+
+  .contenedor__boton-horario {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .boton-horario {
+    width: 90%;
+  }
+
+
+
+
+  .botones_acciones {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .menu-desplegable {
+    width: 90%;
+    right: 5%;
+    top: 70px;
+  }
+
+
+ .select-grupo,
+  .seleccionar-grupo {
+    width: 160px;            
+    font-size: 0.9rem;
+  }
+
+
+  .seleccionar-grupo option {
+    font-size: 0.85rem;
+  }
+
+
+
+
+ .tabla-horario {
+    min-width: 900px;        
+    font-size: 0.9rem;        /* Texto un poco más pequeño */
+  }
+
+
+  .tabla-horario th,
+  .tabla-horario td {
+    padding: 8px 10px;        /
+  }
+
+
+  /* mejora el scroll horizontal en móviles */
+  .tabla-horario::-webkit-scrollbar {
+    height: 8px;
+  }
+
+
+  .tabla-horario::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+
+
+
+    .select-asignatura,
+  .input-hora select {
+    width: 110px;            
+    font-size: 0.9rem;
+    padding: 4px;
+  }
+
+
+  .select-asignatura option,
+  .input-hora select option {
+    font-size: 0.85rem;
+  }
+
+
+}
+
+
+/* --- Footer --- */
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    height: auto;
+    min-height: 70px;
+  }
+
+
+  .footer__redes {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+
+  .icono__redes {
+    width: 30px;
+    height: 30px;
+  }
