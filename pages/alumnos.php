@@ -25,7 +25,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'alumno') {
     exit();
 }
 
-
 //Conecta a la base de datos
 require_once __DIR__ . '/db.php';
 $db = getDB();
@@ -45,10 +44,7 @@ $result = $stmt->get_result();
 $alumno = $result->fetch_assoc();
 $nombreAlumno = isset($alumno) ? $alumno['nombre'] . ' ' . $alumno['apellido'] : 'Alumno';
 $stmt->close();
-
-
 ?>
-
 
 <?php
 // --- Días de la semana ---
@@ -58,8 +54,7 @@ $asignaturas = $db->query("SELECT id_asignatura, nombre FROM asignatura")->fetch
 // --- Obtener aulas (obtiene el id y el nombre del aula de la tabla aula) ---
 $aulas = $db->query("SELECT id_aula, nombre FROM aula")->fetch_all(MYSQLI_ASSOC);
 
-
-// Creamos arrays asociativos para acceder rápido por ID
+// Se crea arrays asociativos para acceder rápido por ID
 $nombre_asignaturas = [];
 foreach ($asignaturas as $a) {
     $nombre_asignaturas[$a['id_asignatura']] = $a['nombre'];
@@ -88,17 +83,12 @@ $inasistencias = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
 
-// Reorganizamos las inasistencias en un array [hora][día]
+//Se reorganiza las inasistencias en un array [hora][día]
 $nombre_inasistencias = [];
 foreach ($inasistencias as $i) {
     $nombre_inasistencias[$i['hora']][$i['dia']] = $i;
 }
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
