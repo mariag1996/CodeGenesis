@@ -3,15 +3,13 @@
 session_start();
 
 // --- Control de expiración de sesión ---
-// Si el usuario estuvo inactivo más de 15 minutos (900 segundos), se destruye la sesión y redirige al login.
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-    session_unset();     // Limpia variables de sesión
-    session_destroy();   // Destruye la sesión
+    session_unset();     
+    session_destroy();   
     header("Location: logeo.php?timeout=1");
     exit();
 }
 
-// Actualiza el tiempo de la última actividad
 $_SESSION['LAST_ACTIVITY'] = time(); 
 
 // --- Control de acceso ---
@@ -22,13 +20,10 @@ if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'director') {
 }
 
 
-/* Conexión a base de datos */
 require_once __DIR__ . '/db.php';
 
-// Obtiene el parámetro usuario desde la URL (?usuario=...), lo convierte a entero
 $usuario = isset($_GET['usuario']) ? (int) $_GET['usuario'] : 0;
 
-//Si el valor de usuario es menor o igual a 0, se detiene el script mostrando un mensaje de error.
 if ($usuario <= 0) {
     die("Usuario inválido.");
 }
@@ -36,16 +31,12 @@ if ($usuario <= 0) {
 // --- Consulta del adscripto a editar ---
 $stmt = getDB()->prepare("SELECT usuario, nombre, apellido FROM adscripto WHERE usuario = ?");
 
-//bind_param() Sirve para vincular variables PHP a esos marcadores ? en la consulta SQL preparada.
-//Primer argumento "i" indica que el tipo de dato es entero (integer).
 $stmt->bind_param("i", $usuario);
-//“Este ? se reemplaza con la variable $id, que es un número entero."
 
 $stmt->execute();
 $result = $stmt->get_result();
 $adscripto = $result->fetch_assoc();
 $stmt->close();
-
 
 //Si no se encuentra el adscripto, se muestra un mensaje y se detiene el script.
 if (!$adscripto) {
