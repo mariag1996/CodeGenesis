@@ -23,10 +23,8 @@ if ($usuario <= 0 || $nombre === ' ' ||  $apellido === ' ') {
 
 try {
     //Se prepara una consulta SQL segura para actualizar los datos del alumno.
-    //"sssi" indica los tipos de datos: string, string, string, integer.
     $stmt = getDB()->prepare("UPDATE adscripto SET nombre = ?, apellido = ? WHERE usuario = ?");
     $stmt->bind_param("ssi", $nombre, $apellido, $usuario);
-   //Se ejecuta la consulta y se cierra el statement.
     $stmt->execute();
     $stmt->close();
 
