@@ -5,30 +5,26 @@ session_start();
 // --- Control de expiración de sesión ---
 // Si el usuario estuvo inactivo más de 15 minutos (900 segundos), se destruye la sesión y redirige al login.
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-    session_unset();     // Limpia variables de sesión
-    session_destroy();   // Destruye la sesión
-    header("Location: logeo.php?timeout=1"); // Redirige al login
-    exit(); // Detiene la ejecución del script
+    session_unset();     
+    session_destroy();  
+    header("Location: logeo.php?timeout=1"); 
+    exit(); 
 }
 
-// Actualiza el tiempo de la última actividad
+
 $_SESSION['LAST_ACTIVITY'] = time(); 
 
 // --- Control de acceso ---
-// Solo los usuarios con rol 'director' pueden acceder.
-// Si no existe la variable de sesión 'usuario' o el rol no es 'director',
-// redirige al formulario de login.
+
 if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'director') {
-    header("Location: logeo.php"); // Redirige al login
-    exit(); // Detiene la ejecución del script
+    header("Location: logeo.php"); 
+    exit(); 
 }
 
-//Conecta a la base de datos
 require_once __DIR__ . '/db.php';
  // Variable para almacenar mensajes de error o éxito
 $msg = '';
 
-//Solo ejecuta el bloque si el formulario fue enviado (método POST).
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Obtiene los datos del formulario y elimina espacios en blanco.
     $nombreAdscripto = trim($_POST['nombreAdscripto'] ?? '');
@@ -36,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuarioAdscripto = trim($_POST['usuarioAdscripto'] ?? '');
     $contraseniaAdscripto = trim($_POST['contraseniaAdscripto'] ?? '');
     $repetirContrasenia = trim($_POST['repetircontrasenia'] ?? '');
-     
-    // --- Validaciones del lado del servidor ---
 
     // Verifica que las contraseñas coincidan
     if ($contraseniaAdscripto !== $repetirContrasenia) {
@@ -56,13 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             // Prepara la consulta SQL para evitar inyecciones
             $stmt = getDB()->prepare("INSERT INTO adscripto (nombre, apellido, usuario, contraseña) VALUES (?, ?, ?, ?)");
-           // Vincula los parámetros (s = string, s = string, i = integer, s = string)
             $stmt->bind_param("ssis", $nombreAdscripto, $apellidoAdscripto, $usuarioAdscripto, $hash);
            //Si todo está correcto, se ejecuta.
             $stmt->execute();
             $stmt->close();
             $msg = "Adscripto guardado correctamente.";
-            // Si ocurre un error al insertar (por ejemplo, usuario duplicado), se captura y se muestra en un mensaje
+            // Si ocurre un error al insertar se captura y se muestra en un mensaje
         } catch (mysqli_sql_exception $e) {
             $msg = "Error al insertar: " . htmlspecialchars($e->getMessage());
 }
