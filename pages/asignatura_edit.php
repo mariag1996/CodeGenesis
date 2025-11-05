@@ -1,17 +1,11 @@
 <!-- ......Este archivo se encarga de editar las asignaturas ...... -->
 <?php
 
-// =====================================
-//  CONEXIÓN A LA BASE DE DATOS
-// =====================================
-
 //Incluye el archivo db.php, que contiene la función getDB() para conectarse a la base de datos.
 require_once __DIR__ . '/db.php';
 // Se incluye procesar.php para manejo de sesion de adscripto
 require __DIR__.'/procesar.php'; 
 
-// Usa el operador ternario para obtener el ID de asignatura desde la URL
-// Si no existe el parámetro o está vacío, se asigna cadena vacía
 $asignaturas = isset($_GET['id_asignatura']) ? trim($_GET['id_asignatura']) : '';
 // Si no se proporcionó un ID válido, muestra un error y termina la ejecución
 if ($asignaturas === '') {
@@ -20,23 +14,11 @@ if ($asignaturas === '') {
 
 // Prepara la consulta para buscar la asignatura correspondiente al ID recibido
 $stmt = getDB()->prepare("SELECT nombre, id_asignatura, activo FROM asignatura WHERE id_asignatura = ?");
-
-//bind_param() Sirve para vincular variables PHP a esos marcadores ? en la consulta SQL preparada.
-//Primer argumento "i" indica que el tipo de dato es entero (integer).
 $stmt->bind_param("i", $asignaturas);
-//“Este ? se reemplaza con la variable $id, que es un número entero."
-
-// Ejecuta la consulta
 $stmt->execute();
-// Obtiene el resultado
 $result = $stmt->get_result();
 $asignaturas = $result->fetch_assoc();
-// Cierra el statement para liberar recursos
 $stmt->close();
-
-// ======================
-//   REGISTRO EN HISTORIAL
-// ======================
 
 // Incluye el archivo procesar_historial.php que contiene la función procesarHistorial()
 // para registrar las acciones realizadas en el sistema por el adscripto (registro, borrar, edición.).
