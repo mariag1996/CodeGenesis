@@ -11,25 +11,16 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'adscripto') {
 }
 
 // --- Procesamiento del formulario ---
-// Solo se ejecuta si el método de la petición es POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// Convierte el ID de la reserva a entero para evitar inyección SQL
     $id_reserva = intval($_POST['id_reserva']);
-// Obtiene la acción enviada (aceptar o cancelar). Si no existe, deja una cadena vacía
     $accion = $_POST['accion'] ?? '';
-// Verifica que el ID sea válido y que la acción sea una de las permitidas
     if ($id_reserva > 0 && in_array($accion, ['aceptar', 'cancelar'])) {
-// Determina el nuevo estado según la acción
         $estado_nuevo = ($accion === 'aceptar') ? 'aceptada' : 'cancelada';
 
         try {
-    // Obtiene la conexión a la base de datos
             $conn = getDB();
-    // Prepara la consulta SQL de actualización con parámetros
             $stmt = $conn->prepare("UPDATE reserva_aula SET estado = ? WHERE id_reserva = ?");
-    // Vincula los parámetros: 's' = string, 'i' = integer
             $stmt->bind_param("si", $estado_nuevo, $id_reserva);
-    // Ejecuta la consulta
             $stmt->execute();
 
     // Verifica si alguna fila fue afectada (actualizada)
