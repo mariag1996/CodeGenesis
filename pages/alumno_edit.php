@@ -1,9 +1,5 @@
 <?php
-// --- Conexión y configuración base ---
-// Se incluye el archivo db.php, que contiene la función getDB()
-// usada para obtener la conexión a la base de datos.
 require_once __DIR__ . '/db.php';
-// Se incluye procesar.php para manejo de sesion de adscripto
 require __DIR__.'/procesar.php'; 
 
 // --- Obtención de grupos disponibles ---
@@ -27,8 +23,6 @@ try {
 
 
 // --- Obtención del parámetro 'usuario' desde la URL ---
-// Se utiliza el operador ternario para verificar si se recibió el parámetro 'usuario'.
-// Si existe, se convierte a entero. Si no, se asigna 0.
 $usuario = isset($_GET['usuario']) ? (int) $_GET['usuario'] : 0;
 // Si el valor de usuario no es válido (0 o negativo), el script se detiene.
 if ($usuario <= 0) {
@@ -46,7 +40,6 @@ $stmt->execute();
 // Se obtienen los resultados como un array asociativo.
 $result = $stmt->get_result();
 $alumno = $result->fetch_assoc();
-// Se cierra el statement para liberar recursos.
 $stmt->close();
 
 // --- Registro en el historial ---
