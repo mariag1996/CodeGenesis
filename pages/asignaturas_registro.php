@@ -1,17 +1,10 @@
 <?php
-// =====================================
-//  CONEXIÓN A LA BASE DE DATOS
-// ===================================== 
 
 // Se incluye el archivo 'db.php', que contiene la función getDB()
 // para obtener una conexión segura a la base de datos mediante mysqli.
 require_once __DIR__ . '/db.php';
 // Se incluye procesar.php para manejo de sesion de adscripto
 require __DIR__.'/procesar.php'; 
-
-// =====================================
-//  VERIFICAR MÉTODO DE ACCESO
-// =====================================
 
 // Este bloque solo se ejecuta si la página fue accedida por POST,
 // es decir, si el usuario envió el formulario de registro de aula.
@@ -21,9 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Se valida que el campo no esté vacío.
     if ($nombreAsignatura !== '') {
     try {
-        // =====================================
-        //  INSERCIÓN EN LA BASE DE DATOS
-        // =====================================
+       
         // Se prepara una consulta SQL segura con marcadores (?) 
         // para evitar inyección de SQL.
         $stmt = getDB()->prepare("INSERT INTO asignatura (nombre) VALUES (?)");
@@ -35,14 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Después de ejecutar, obtenemos el ID de la nueva asignatura insertada.
         $idAsignatura = $stmt->insert_id;
-        // Cerramos el statement para liberar memoria.
         $stmt->close();
         // Mensaje de éxito para mostrar en pantalla.
         $msg = "Asignatura guardada correctamente.";
-
-        // =====================================
-        //  REGISTRO EN HISTORIAL
-        // =====================================
 
         // Incluye el archivo procesar_historial.php que contiene la función procesarHistorial()
         // para registrar las acciones realizadas en el sistema por el adscripto (registro, borrar, edición.).
@@ -55,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } catch (mysqli_sql_exception $e) {
         // Si ocurre un error de base de datos, se captura y se muestra
-        // de forma segura (sin exponer detalles del sistema).
         $msg = "Error al insertar: " . htmlspecialchars($e->getMessage());
     }
 } else {
@@ -70,9 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 require __DIR__.'/header.php'; 
 ?>
 
-<!-- =====================================
- SECCIÓN: FORMULARIO DE REGISTRO
- ===================================== -->
     <main>
      <div class="contenedor_titulo">
      <h1 class="titulo">Registro de Asignaturas</h1>
@@ -100,9 +82,6 @@ require __DIR__.'/header.php';
     <?php endif; ?>
 
      <?php
-// =====================================
-//  CONSULTA DE ASIGNATURAS REGISTRADAS
-// =====================================
 
 // Se realiza una consulta a la tabla “asignatura”
 // para listar todas las asignaturas, con su fecha de creación y estado.
