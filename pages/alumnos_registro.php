@@ -1,12 +1,7 @@
 <!-- ......Este archivo se encarga de registrar a los alumnos ...... -->
 <?php
-// =====================================
-//  CONEXIÓN A LA BASE DE DATOS
-// ===================================== 
 
 // --- Conexión a la base de datos ---
-// Se incluye el archivo 'db.php', que contiene la función getDB()
-// para obtener una conexión segura a la base de datos mediante mysqli.
 require_once __DIR__ . '/db.php';
 // Se incluye procesar.php para manejo de sesion de adscripto
 require __DIR__.'/procesar.php'; 
@@ -18,7 +13,7 @@ $msg = '';
 //Los guarda en el arreglo $grupos para usarlos en el formulario.
 $grupos = [];
 try {
-    //Esto hace que solo se traigan los grupos que están activos (activo = 1)
+    //Solo se traen los grupos que están activos (activo = 1)
     //  y los ordena alfabéticamente
     $result = getDB()->query("SELECT nombre FROM grupo WHERE activo = 1 ORDER BY nombre");
     if ($result) {
@@ -71,10 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Mensaje de éxito
             $msg = "Alumno guardado correctamente.";
 
-            // ======================
-            //   REGISTRO EN HISTORIAL
-            // ======================
-
             // --- Registro en el historial ---
             // Incluye el archivo procesar_historial.php que contiene la función procesarHistorial()
             // para registrar las acciones realizadas en el sistema por el adscripto (registro, borrar, edición.).
@@ -82,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Llama a la función para guardar el evento en el historial:
             //   - 'alumno' → tabla afectada
             //   - 'registro' → tipo de acción
-            //   - $usuario → ID (PK) del alumno afectado
+            //   - $usuarioAlumno → ID (PK) del alumno afectado
             procesarHistorial('alumno', 'registro', $usuarioAlumno);
 
         } catch (mysqli_sql_exception $e) {
